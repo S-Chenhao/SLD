@@ -1,0 +1,9 @@
+# Install the PyTorch build for your hardware first:
+# https://pytorch.org/get-started/locally/
+torch
+numpy
+scipy
+matplotlib
+pyrtools
+jupyterlab
+nbformat

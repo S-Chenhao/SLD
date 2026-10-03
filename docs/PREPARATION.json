@@ -1,0 +1,203 @@
+[
+  {
+    "source": "2D-Burgers-CaseB (2).ipynb",
+    "changes": [
+      "merged original first cell and indented training continuation",
+      "removed empty cells and saved outputs",
+      "added repository-root and environment-based paths",
+      "removed CUDA_VISIBLE_DEVICES mask",
+      "replaced Windows checkpoint path and Case labels in output names",
+      "corrected stale GS title",
+      "added explicit legacy-first smooth-IC fallback and provenance warning"
+    ],
+    "science_preserved": [
+      "equations",
+      "integrator",
+      "losses",
+      "hyperparameters",
+      "random seeds",
+      "dataset segment and split logic"
+    ],
+    "source_sha256": "5868c37eae1a5c3551d2bcf0562ad959f8513581a47bab48daa284fd6873d268",
+    "target": "task1_unseen_ic/Burgers/Burgers_SLD.ipynb"
+  },
+  {
+    "source": "2D-Burgers-CaseC (1).ipynb",
+    "changes": [
+      "merged original first cell and indented training continuation",
+      "removed empty cells and saved outputs",
+      "added repository-root and environment-based paths",
+      "removed CUDA_VISIBLE_DEVICES mask",
+      "replaced Windows checkpoint path and Case labels in output names",
+      "corrected stale GS title"
+    ],
+    "science_preserved": [
+      "equations",
+      "integrator",
+      "losses",
+      "hyperparameters",
+      "random seeds",
+      "dataset segment and split logic"
+    ],
+    "source_sha256": "c49da51fc6faddd70f20da1a9d2540c96dec4648628046d623cd19242fad2470",
+    "target": "task2_later_time/Burgers/Burgers_SLD.ipynb"
+  },
+  {
+    "source": "2D Burgers data-Copy1 (1).ipynb",
+    "changes": [
+      "defined missing data_dir/fig_dir/base_dir in portable configuration",
+      "changed optional check to search configured data_dir",
+      "removed empty cells and saved outputs",
+      "added explicit generator provenance and data size information"
+    ],
+    "science_preserved": [
+      "PDE solver",
+      "initial-condition construction",
+      "downsampling",
+      "all parameters and random seeds"
+    ],
+    "source_sha256": "05af6e40b440ffdbeafc1ffe0dc912b3ec87d6a00d9c1064b7f1796cef6497a1",
+    "target": "data_generation/Burgers/Burgers_data.ipynb"
+  },
+  {
+    "source": "2D-GL-CaseB.ipynb",
+    "source_sha256": "8c3a82c61f0dd71fdc3656627a47d1ff1b140f7ba970aecf42a7d2126a267950",
+    "changes": [
+      "Merged main-block continuation cells preserving their indentation/scope.",
+      "Added repository-root discovery and SLD_DATA_ROOT/SLD_RESULTS_ROOT configuration.",
+      "Aligned shared PDE data directory to data/ginzburg_landau and task-specific results.",
+      "Removed fixed CUDA_VISIBLE_DEVICES mask.",
+      "Replaced private Windows checkpoint directory with model result directory; renamed checkpoint/history basenames.",
+      "Removed unused broken legacy validate() and unused CUDA-only GetModelLoss(); active GL training/loss code is unchanged.",
+      "Corrected inactive noisy-LR filename temporal length 751 to 300, and stale shape/header comments.",
+      "Cleared outputs, execution counts and original notebook metadata."
+    ],
+    "limitations": [
+      "Full training and numerical reproduction were not executed.",
+      "Supplied single fold/partition does not reproduce the paper aggregate on its own.",
+      "Test loader is built but test evaluation is not implemented in the supplied notebook.",
+      "Python random split is unseeded in original and remains unseeded."
+    ],
+    "validation": "All code cells pass Python AST parsing and nbformat validation. Repository root/default paths/relative environment overrides work from each notebook directory. Active model/operator/loss/training function ASTs match the original apart from documented inactive cleanup. Training and full data generation were not executed.",
+    "target": "task1_unseen_ic/Ginzburg-Landau/Ginzburg-Landau_SLD.ipynb"
+  },
+  {
+    "source": "2D-GL-CaseC.ipynb",
+    "source_sha256": "e9c235f64777e406559a5ac69e96721f7974a369507fd955bc045e7a6624b183",
+    "changes": [
+      "Merged main-block continuation cells preserving their indentation/scope.",
+      "Added repository-root discovery and SLD_DATA_ROOT/SLD_RESULTS_ROOT configuration.",
+      "Aligned shared PDE data directory to data/ginzburg_landau and task-specific results.",
+      "Removed fixed CUDA_VISIBLE_DEVICES mask.",
+      "Replaced private Windows checkpoint directory with model result directory; renamed checkpoint/history basenames.",
+      "Removed unused broken legacy validate() and unused CUDA-only GetModelLoss(); active GL training/loss code is unchanged.",
+      "Corrected inactive noisy-LR filename temporal length 751 to 300, and stale shape/header comments.",
+      "Cleared outputs, execution counts and original notebook metadata."
+    ],
+    "limitations": [
+      "Full training and numerical reproduction were not executed.",
+      "Supplied single fold/partition does not reproduce the paper aggregate on its own.",
+      "Test loader is built but test evaluation is not implemented in the supplied notebook."
+    ],
+    "validation": "All code cells pass Python AST parsing and nbformat validation. Repository root/default paths/relative environment overrides work from each notebook directory. Active model/operator/loss/training function ASTs match the original apart from documented inactive cleanup. Training and full data generation were not executed.",
+    "target": "task2_later_time/Ginzburg-Landau/Ginzburg-Landau_SLD.ipynb"
+  },
+  {
+    "source": "GL data (1).ipynb",
+    "source_sha256": "8c8f0ce2bf92a87b3f1e858c903d58e71cb008bf8bcc57e1b757b4ccca084bfe",
+    "changes": [
+      "Added shared repository/data/results configuration.",
+      "Aligned generator output directory with both training notebooks.",
+      "Fixed noisy-LR output filename suffix to match actual 32×32 shape.",
+      "Corrected completion file-count globs and stale x16/3001 comments to actual defaults.",
+      "Removed empty cells and obsolete SR16 visualization cells 5–7; retained the correct current-data visualization originally in cell 3.",
+      "Cleared outputs, execution counts and private metadata."
+    ],
+    "limitations": [
+      "Full dataset generation was not executed.",
+      "Pyrtools availability changes downsampling operator in preserved original fallback.",
+      "Original zero-noise defaults still create noise-labelled LR copies, as supplied."
+    ],
+    "validation": "All code cells pass Python AST parsing and nbformat validation. Repository root/default paths/relative environment overrides work from each notebook directory. Active model/operator/loss/training function ASTs match the original apart from documented inactive cleanup. Training and full data generation were not executed.",
+    "target": "data_generation/Ginzburg-Landau/Ginzburg-Landau_data.ipynb"
+  },
+  {
+    "source": "2D-GS-ConvGRU-ODE-CaseB (2).ipynb",
+    "source_sha256": "3b73ade43dfb3772d755f7f23b29373bad6d988994011c2d0ce2695914964148",
+    "target": "task1_unseen_ic/Gray-Scott/Gray-Scott_SLD.ipynb",
+    "retained_source_cells": [
+      1,
+      5
+    ],
+    "removed_source_cells": [
+      2,
+      3,
+      4,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19
+    ],
+    "dedented_training_cell": 5,
+    "cuda_calls_replaced": 7,
+    "scientific_split_correction": null,
+    "new_optional_evaluation": true
+  },
+  {
+    "source": "2D-GS-ConvGRU-ODE-CaseC (1).ipynb",
+    "source_sha256": "3392a0fde34f085fc4c4a14f3321f8a1f24e70f9b3a38b0642db6ad6cc6ddc44",
+    "target": "task2_later_time/Gray-Scott/Gray-Scott_SLD.ipynb",
+    "retained_source_cells": [
+      1,
+      4
+    ],
+    "removed_source_cells": [
+      2,
+      3,
+      5,
+      6,
+      7
+    ],
+    "dedented_training_cell": 4,
+    "cuda_calls_replaced": 7,
+    "scientific_split_correction": "GSDataset now uses segments instead of a fixed [100, 150, 200, 250] list",
+    "new_optional_evaluation": true
+  },
+  {
+    "source": "2D GS data (1).ipynb",
+    "source_sha256": "9e2fb84b060d4488404266bb5ef376e6910a85b23afdc7ffcdbe20ca16370234",
+    "target": "data_generation/Gray-Scott/Gray-Scott_data.ipynb",
+    "retained_source_cells": [
+      1,
+      2,
+      5,
+      7
+    ],
+    "removed_source_cells": [
+      3,
+      4,
+      6,
+      8,
+      9,
+      10,
+      11
+    ],
+    "optional_source_cells": [
+      2,
+      5,
+      7
+    ],
+    "float64_storage_preserved": true,
+    "downsampling_change": "Missing pyrtools now fails clearly rather than silently using simple decimation"
+  }
+]

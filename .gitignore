@@ -1,0 +1,18 @@
+# Generated datasets, training results, and checkpoints
+/data/
+/results/
+*.mat
+*.pth
+*.pt
+*.ckpt
+*.npy
+*.npz
+# Notebook and Python working files
+.ipynb_checkpoints/
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+.env.*
+.DS_Store

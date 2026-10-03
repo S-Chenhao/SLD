@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+message: "If you use SLD, please cite the accompanying manuscript."
+title: "SLD: Structured Latent Dynamics"
+type: software
+authors:
+  - family-names: Si
+    given-names: Chenhao
+  - family-names: Qian
+    given-names: Zishan
+  - family-names: Wu
+    given-names: Rongling
+  - family-names: Yan
+    given-names: Ming
+preferred-citation:
+  type: unpublished
+  title: "Latent dynamics for reconstructing fine-scale PDE trajectories from coarse observations"
+  authors:
+    - family-names: Si
+      given-names: Chenhao
+    - family-names: Qian
+      given-names: Zishan
+    - family-names: Wu
+      given-names: Rongling
+    - family-names: Yan
+      given-names: Ming

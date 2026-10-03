@@ -1,0 +1,642 @@
+{
+  "scope": "Structural checks and tiny CPU/operator smoke tests only; full simulation, training, GPU runs, and manuscript metrics were not executed.",
+  "notebooks": [
+    {
+      "path": "data_generation/Burgers/Burgers_data.ipynb",
+      "schema": "passed",
+      "syntax": "passed",
+      "outputs_cleared": true,
+      "sha256": "9d37e9676ac5ac54e0cef0443bcb50b4970686db4be9c8a08953ef0eabe58312"
+    },
+    {
+      "path": "data_generation/Ginzburg-Landau/Ginzburg-Landau_data.ipynb",
+      "schema": "passed",
+      "syntax": "passed",
+      "outputs_cleared": true,
+      "sha256": "3a0fc624c508904e79702aa75698ce7ec724aed4741967c2f339724cebf48ac9"
+    },
+    {
+      "path": "data_generation/Gray-Scott/Gray-Scott_data.ipynb",
+      "schema": "passed",
+      "syntax": "passed",
+      "outputs_cleared": true,
+      "sha256": "e59003ce1e087156c64eaf6089fcda8b41b7e65ef2a35df8c0af5acb162e8f89"
+    },
+    {
+      "path": "task1_unseen_ic/Burgers/Burgers_SLD.ipynb",
+      "schema": "passed",
+      "syntax": "passed",
+      "outputs_cleared": true,
+      "sha256": "be5d0d03c1bdf9f7c5c7f2a96fb10386c4eb58af02a72a14c53467e15f737f6a"
+    },
+    {
+      "path": "task1_unseen_ic/Ginzburg-Landau/Ginzburg-Landau_SLD.ipynb",
+      "schema": "passed",
+      "syntax": "passed",
+      "outputs_cleared": true,
+      "sha256": "0a8a2cb1975aac8b1aad682f54186e90e6a9c51ded226b18027e6bf483c7a408"
+    },
+    {
+      "path": "task1_unseen_ic/Gray-Scott/Gray-Scott_SLD.ipynb",
+      "schema": "passed",
+      "syntax": "passed",
+      "outputs_cleared": true,
+      "sha256": "1d9179acf165ea6fb366b23c5890154fc36a6619e8e8beb00cde81c92f1ddc68"
+    },
+    {
+      "path": "task2_later_time/Burgers/Burgers_SLD.ipynb",
+      "schema": "passed",
+      "syntax": "passed",
+      "outputs_cleared": true,
+      "sha256": "36fdfd6629df462b71e7aa1412affc6156e8da9584c0577e943aa45ddab54aaf"
+    },
+    {
+      "path": "task2_later_time/Ginzburg-Landau/Ginzburg-Landau_SLD.ipynb",
+      "schema": "passed",
+      "syntax": "passed",
+      "outputs_cleared": true,
+      "sha256": "a1ea2b00ad58af09e9bc276910b8cd5c16541f82e8c9cc80ababf5264fb10c2d"
+    },
+    {
+      "path": "task2_later_time/Gray-Scott/Gray-Scott_SLD.ipynb",
+      "schema": "passed",
+      "syntax": "passed",
+      "outputs_cleared": true,
+      "sha256": "115a4cb0b027342a1d505e4a5981e4a2b2cf90c9941ae5eb58ea2f241d1d0a5b"
+    }
+  ],
+  "model_checks": {
+    "gs": {
+      "validation": "tiny CPU forward, loss, and synthetic dataset contracts only; no full training or data generation",
+      "results": [
+        {
+          "task": "task1_unseen_ic",
+          "input_shape": [
+            2,
+            1,
+            2,
+            8,
+            8
+          ],
+          "output_shape": [
+            8,
+            1,
+            2,
+            64,
+            64
+          ],
+          "finite_output": true,
+          "cpu_physics_loss_finite": true,
+          "forward_and_loss_seconds": 0.062,
+          "parameters": 173602,
+          "mock_dataset": {
+            "samples_per_ic": 4,
+            "raw_frame_starts": [
+              [
+                250,
+                1000
+              ],
+              [
+                350,
+                1400
+              ],
+              [
+                450,
+                1800
+              ],
+              [
+                550,
+                2200
+              ]
+            ]
+          }
+        },
+        {
+          "task": "task2_later_time",
+          "input_shape": [
+            2,
+            1,
+            2,
+            8,
+            8
+          ],
+          "output_shape": [
+            8,
+            1,
+            2,
+            64,
+            64
+          ],
+          "finite_output": true,
+          "cpu_physics_loss_finite": true,
+          "forward_and_loss_seconds": 0.045,
+          "parameters": 173602,
+          "mock_dataset": {
+            "train_length": 3,
+            "held_length": 2,
+            "train_raw_frame_starts": [
+              [
+                250,
+                1000
+              ],
+              [
+                350,
+                1400
+              ],
+              [
+                450,
+                1800
+              ]
+            ],
+            "held_raw_frame_starts": [
+              [
+                500,
+                2000
+              ],
+              [
+                550,
+                2200
+              ]
+            ],
+            "train_held_hr_frames_disjoint": true
+          }
+        }
+      ]
+    },
+    "gl": {
+      "environment": {
+        "python": "3.12.14",
+        "platform": "macOS-14.3-arm64-arm-64bit",
+        "torch": "2.14.1",
+        "numpy": "2.5.3",
+        "scipy": "1.18.1",
+        "matplotlib": "3.11.2",
+        "device": "cpu",
+        "threads": 2
+      },
+      "execution_scope": "Only module imports, class/function definitions and top-level assignment globals are extracted from the notebook model cell AST; expression statements and main guards are excluded. No training, dataset loading, generation, or artifact saving is executed.",
+      "checks": [
+        {
+          "notebook": "task1_unseen_ic/Ginzburg-Landau/Ginzburg-Landau_SLD.ipynb",
+          "status": "passed",
+          "constructor": {
+            "n_feats": 64,
+            "n_layers": [
+              6,
+              3
+            ],
+            "upscale_factor": [
+              4,
+              8
+            ],
+            "mean": [
+              0.0,
+              0.0
+            ],
+            "std": [
+              1.0,
+              1.0
+            ]
+          },
+          "input_shape": [
+            2,
+            1,
+            2,
+            8,
+            8
+          ],
+          "output_shape": [
+            8,
+            1,
+            2,
+            64,
+            64
+          ],
+          "output_finite": true,
+          "output_absmax": 3.2420601844787598,
+          "physics_loss_configuration": {
+            "dt": 0.0168,
+            "dx": 0.0078125,
+            "eps": 0.004,
+            "nu": 10.0,
+            "gamma_re": 10.0,
+            "gamma_im": 15.0,
+            "beta": 0.005
+          },
+          "losses": {
+            "total": 403.909912109375,
+            "data": 0.8995559215545654,
+            "physics": 80602.0703125,
+            "physics_u": 39257.55078125,
+            "physics_v": 41344.51953125
+          },
+          "physical_loss_finite": true,
+          "physical_loss_output_gradient_finite": true,
+          "zero_field_all_losses_exactly_zero": true,
+          "elapsed_seconds": 10.101987791946158
+        },
+        {
+          "notebook": "task2_later_time/Ginzburg-Landau/Ginzburg-Landau_SLD.ipynb",
+          "status": "passed",
+          "constructor": {
+            "n_feats": 64,
+            "n_layers": [
+              6,
+              3
+            ],
+            "upscale_factor": [
+              4,
+              8
+            ],
+            "mean": [
+              0.0,
+              0.0
+            ],
+            "std": [
+              1.0,
+              1.0
+            ]
+          },
+          "input_shape": [
+            2,
+            1,
+            2,
+            8,
+            8
+          ],
+          "output_shape": [
+            8,
+            1,
+            2,
+            64,
+            64
+          ],
+          "output_finite": true,
+          "output_absmax": 3.2420601844787598,
+          "physics_loss_configuration": {
+            "dt": 0.0168,
+            "dx": 0.0078125,
+            "eps": 0.004,
+            "nu": 10.0,
+            "gamma_re": 10.0,
+            "gamma_im": 15.0,
+            "beta": 0.005
+          },
+          "losses": {
+            "total": 403.909912109375,
+            "data": 0.8995559215545654,
+            "physics": 80602.0703125,
+            "physics_u": 39257.55078125,
+            "physics_v": 41344.51953125
+          },
+          "physical_loss_finite": true,
+          "physical_loss_output_gradient_finite": true,
+          "zero_field_all_losses_exactly_zero": true,
+          "elapsed_seconds": 0.06408333301078528
+        }
+      ]
+    },
+    "burgers": {
+      "device": "cpu",
+      "training_run": false,
+      "full_dataset_generation_run": false,
+      "checks": [
+        {
+          "task": "task1_unseen_ic",
+          "check": "model_forward",
+          "input_shape": [
+            2,
+            1,
+            2,
+            8,
+            8
+          ],
+          "output_shape": [
+            8,
+            1,
+            2,
+            64,
+            64
+          ],
+          "finite": true,
+          "seconds": 0.0381,
+          "constructor": {
+            "n_feats": 64,
+            "n_layers": [
+              6,
+              3
+            ],
+            "upscale_factor": [
+              4,
+              8
+            ],
+            "mean": [
+              0,
+              0
+            ],
+            "std": [
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "task": "task1_unseen_ic",
+          "check": "physical_loss",
+          "dt": 0.001,
+          "dx": 0.0078125,
+          "nu": 0.005,
+          "beta": 0.005,
+          "finite": true,
+          "values": {
+            "total": 839.86328125,
+            "data": 0.41364309191703796,
+            "physics": 167889.9375,
+            "u": 82054.671875,
+            "v": 85835.2734375
+          }
+        },
+        {
+          "task": "task1_unseen_ic",
+          "check": "synthetic_dataset_and_file_resolution",
+          "synthetic_spatial_sizes": {
+            "lr": 4,
+            "hr": 8
+          },
+          "ICs": [
+            1
+          ],
+          "sample_count": 4,
+          "LR_segment_starts": [
+            100,
+            150,
+            200,
+            250
+          ],
+          "HR_alignment": "4 * LR start",
+          "legacy_priority": true,
+          "smooth_fallback_warning_count": 1,
+          "strict_legacy_rejects_missing_original": true
+        },
+        {
+          "task": "task2_later_time",
+          "check": "model_forward",
+          "input_shape": [
+            2,
+            1,
+            2,
+            8,
+            8
+          ],
+          "output_shape": [
+            8,
+            1,
+            2,
+            64,
+            64
+          ],
+          "finite": true,
+          "seconds": 0.0214,
+          "constructor": {
+            "n_feats": 64,
+            "n_layers": [
+              6,
+              3
+            ],
+            "upscale_factor": [
+              4,
+              8
+            ],
+            "mean": [
+              0,
+              0
+            ],
+            "std": [
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "task": "task2_later_time",
+          "check": "physical_loss",
+          "dt": 0.001,
+          "dx": 0.0078125,
+          "nu": 0.005,
+          "beta": 0.005,
+          "finite": true,
+          "values": {
+            "total": 738.896484375,
+            "data": 0.4133795499801636,
+            "physics": 147696.625,
+            "u": 74126.6171875,
+            "v": 73570.0078125
+          }
+        },
+        {
+          "task": "task2_later_time",
+          "check": "synthetic_dataset_segments",
+          "synthetic_spatial_sizes": {
+            "lr": 4,
+            "hr": 8
+          },
+          "ICs": [
+            1
+          ],
+          "train_LR_segment_starts": [
+            100,
+            150,
+            200
+          ],
+          "validation_test_LR_segment_starts": [
+            225,
+            250
+          ],
+          "HR_alignment": "4 * LR start",
+          "sample_counts": [
+            3,
+            2
+          ],
+          "out_of_range_280_rejected": true
+        }
+      ],
+      "status": "passed"
+    }
+  },
+  "generator_checks": {
+    "gs": {
+      "validation": "definition-only smoke; no complete simulation or dataset storage",
+      "rk4": {
+        "grid_shape": [
+          32,
+          32
+        ],
+        "updates": 1,
+        "parameters": {
+          "DA": 0.16,
+          "DB": 0.08,
+          "f": 0.06,
+          "k": 0.062,
+          "delta_t": 1.0,
+          "dx": 1.0,
+          "random_influence": 0.1,
+          "ic_seed": 1
+        },
+        "finite_output": true
+      },
+      "pyramid": {
+        "input_shape": [
+          2,
+          1,
+          256,
+          256
+        ],
+        "output_shape": [
+          2,
+          1,
+          32,
+          32
+        ],
+        "operator": "pyrtools.blurDn",
+        "filter": "binom5",
+        "levels": 3,
+        "finite_output": true
+      },
+      "seconds": 0.002
+    },
+    "gl": {
+      "status": "passed",
+      "notebook": "data_generation/Ginzburg-Landau/Ginzburg-Landau_data.ipynb",
+      "environment": {
+        "python": "3.12.14",
+        "numpy": "2.5.3",
+        "pyrtools": "1.0.11"
+      },
+      "scope": "Definitions/imports only; no main code, directory creation, dataset generation, trajectory loop, or file writes. One RK4 step is executed on a tiny grid.",
+      "initial_shape": [
+        32,
+        32
+      ],
+      "rk4_steps": 1,
+      "rk4_parameters": {
+        "eps": 0.004,
+        "nu": 10.0,
+        "gamma_re": 10.0,
+        "gamma_im": 15.0,
+        "dx": 0.0625,
+        "delta_t": 0.0002
+      },
+      "rhs_and_rk4_finite": true,
+      "pyrtools_downsampling": {
+        "HAS_PYRTOOLS": true,
+        "input_shape": [
+          2,
+          2,
+          32,
+          32
+        ],
+        "levels": 3,
+        "output_shape": [
+          2,
+          2,
+          4,
+          4
+        ],
+        "finite": true
+      },
+      "temporal_downsampling": {
+        "factor": 4,
+        "output_shape": [
+          2,
+          1,
+          32,
+          32
+        ]
+      },
+      "noise_checks": {
+        "zero_noise_exact_copy": true,
+        "seed": 20250302,
+        "positive_noise_finite": true
+      },
+      "scientific_functions_compared_to_original": [
+        "apply_laplacian",
+        "gl_rhs",
+        "update_rk4_gl",
+        "get_initial_u_and_v",
+        "downsample_temporal",
+        "downsample_spatial_gaussian",
+        "downsample_spatial_official_pyrtools",
+        "add_observation_noise_lr"
+      ],
+      "function_ASTs_equal_after_docstring_removal": true,
+      "generated_names_for_current_defaults": {
+        "save_path_high": "2DGL_IC1_ri100_2x1200x256x256.mat",
+        "save_path_low": "2DGL_IC1_ri100_2x300x32x32.mat",
+        "save_path_low_noisy": "2DGL_IC1_ri100_obsn00_2x300x32x32.mat"
+      },
+      "clean_and_noisy_filename_contract_matches_both_task_loaders": true
+    },
+    "burgers": {
+      "status": "passed",
+      "full_dataset_generation_run": false,
+      "dataset_files_written": false,
+      "grid": 32,
+      "domain_length": 2.0,
+      "dt": 0.001,
+      "nu": 0.005,
+      "checks": [
+        {
+          "check": "smooth_initial_condition_and_one_RK4_step",
+          "shape": [
+            32,
+            32
+          ],
+          "finite": true,
+          "seconds": 0.0053,
+          "ic_seed": 10001,
+          "base_seed": 2027
+        },
+        {
+          "check": "zero_field_preservation",
+          "RK4_preserved": true,
+          "temporal_factor": 4,
+          "spatial_factor": 8,
+          "HR_shape": [
+            2,
+            8,
+            32,
+            32
+          ],
+          "LR_shape": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "downsample_preserved": true,
+          "absolute_tolerance": 1e-12
+        },
+        {
+          "check": "constant_field_preservation",
+          "RK4_preserved": true,
+          "temporal_factor": 4,
+          "spatial_factor": 8,
+          "HR_shape": [
+            2,
+            8,
+            32,
+            32
+          ],
+          "LR_shape": [
+            2,
+            2,
+            4,
+            4
+          ],
+          "downsample_preserved": true,
+          "absolute_tolerance": 1e-12
+        }
+      ]
+    }
+  }
+}
