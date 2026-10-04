@@ -8,7 +8,9 @@ SLD reconstructs high-resolution PDE trajectories from coarse observations. It c
 
 **25 input frames at 32 × 32 → 100 output frames at 256 × 256**, with two state channels.
 
-This repository contains six SLD experiment notebooks and three dataset-generation notebooks for two-dimensional Gray–Scott, complex Ginzburg–Landau, and viscous vector Burgers systems.
+This repository contains six SLD experiment notebooks, three dataset generators, and one representative trained SLD checkpoint per PDE and task. Two compact evaluation notebooks run SLD inference and report relative L2 and MAE.
+
+**Raw datasets:** [ChenhaoSI/SLD-dataset on Hugging Face](https://huggingface.co/datasets/ChenhaoSI/SLD-dataset).
 
 ## Method
 
@@ -36,15 +38,31 @@ flowchart LR
 
 For every LR start index `s`, the paired HR start is `4*s` in the arrays used by the loader. Each pair contains 25 LR frames and 100 HR frames. Gray–Scott retains the supplied additional temporal slicing; see the reproduction notes below.
 
+## Evaluate the published checkpoints
+
+Open [Task 1 evaluation](task1_unseen_ic/SLD_evaluation.ipynb) or [Task 2 evaluation](task2_later_time/SLD_evaluation.ipynb), run the setup cell, and select the PDEs. Set `DOWNLOAD_DATA=True` to fetch only the required test trajectories from the public Hugging Face dataset, or point `SLD_DATA_ROOT` at existing canonical data folders.
+
+The evaluation restores normalization from the checkpoint and computes metrics over all 100 target frames. It writes small JSON summaries under `results/`, without baseline models, checkpoint aggregation or paper-panel plots. Task 1 evaluates held-out IC 1. Task 2 uses the authors' confirmed PDE-specific training partitions: Gray–Scott seed 4, Ginzburg–Landau seed 48, and Burgers seed 1.
+
+| PDE | Task 1 checkpoint | Task 2 checkpoint |
+| --- | --- | --- |
+| Gray–Scott | [GS_CaseB_1](task1_unseen_ic/Gray-Scott/checkpoints/GS_CaseB_1_best_model.pth) | [GS_CaseC_1](task2_later_time/Gray-Scott/checkpoints/GS_CaseC_1_best_model.pth) |
+| Ginzburg–Landau | [GL_CaseB_1](task1_unseen_ic/Ginzburg-Landau/checkpoints/GL_CaseB_1_best_model.pth) | [GL_CaseC_1](task2_later_time/Ginzburg-Landau/checkpoints/GL_CaseC_1_best_model.pth) |
+| Burgers | [Burgers_CaseB_1](task1_unseen_ic/Burgers/checkpoints/Burgers_CaseB_1_best_model.pth) | [Burgers_CaseC_1](task2_later_time/Burgers/checkpoints/Burgers_CaseC_1_best_model.pth) |
+
+Each file is about 2 MiB. [Evaluation details](docs/EVALUATION.md) define splits and metrics; [checkpoint checksums](docs/CHECKPOINTS.json) identify the original supplied files.
+
 ## Repository layout
 
 ```text
 SLD/
 ├── task1_unseen_ic/
+│   ├── SLD_evaluation.ipynb
 │   ├── Gray-Scott/Gray-Scott_SLD.ipynb
 │   ├── Ginzburg-Landau/Ginzburg-Landau_SLD.ipynb
 │   └── Burgers/Burgers_SLD.ipynb
 ├── task2_later_time/
+│   ├── SLD_evaluation.ipynb
 │   ├── Gray-Scott/Gray-Scott_SLD.ipynb
 │   ├── Ginzburg-Landau/Ginzburg-Landau_SLD.ipynb
 │   └── Burgers/Burgers_SLD.ipynb
@@ -52,6 +70,8 @@ SLD/
 │   ├── Gray-Scott/Gray-Scott_data.ipynb
 │   ├── Ginzburg-Landau/Ginzburg-Landau_data.ipynb
 │   └── Burgers/Burgers_data.ipynb
+├── sld/                     # Shared SLD inference model and evaluator
+├── docs/EVALUATION.md
 ├── docs/REPRODUCIBILITY.md
 ├── requirements.txt
 └── CITATION.cff
@@ -70,13 +90,13 @@ python -m pip install -r requirements.txt
 python -m jupyter lab
 ```
 
-1. Open the dataset notebook for your PDE and run its setup and generation cells. Generation writes MATLAB `.mat` files beneath `data/gray_scott/`, `data/ginzburg_landau/`, or `data/burgers/`.
+1. Download the raw [Hugging Face dataset](https://huggingface.co/datasets/ChenhaoSI/SLD-dataset), or run a dataset generator. MATLAB `.mat` files belong beneath `data/gray_scott/`, `data/ginzburg_landau/`, or `data/burgers/`. The evaluation notebooks can download their required test files automatically.
 2. Open the corresponding SLD notebook under your chosen task and run its cells in order. Review its split configuration and paths before a full training run.
 3. Checkpoints, histories, and generated plots are written beneath `results/`. Optional visualization cells require the files identified in their headings.
 
 The setup cell finds the repository root when Jupyter starts in the repository or one of its subdirectories. Set `SLD_DATA_ROOT` or `SLD_RESULTS_ROOT` before starting the kernel to use another data or results location.
 
-A CUDA GPU is useful for full training. The code selects CUDA when available and otherwise uses CPU. Full dataset generation and training are substantial workloads; generated datasets and pretrained checkpoints are not included.
+A CUDA GPU is useful for full training and evaluation. The code selects CUDA when available and otherwise uses CPU. Raw datasets are hosted on Hugging Face; the six representative checkpoints are included in this repository.
 
 ## Data format
 
@@ -98,7 +118,7 @@ This release preserves the supplied SLD models, numerical solvers, loss definiti
 
 The supplied Gray–Scott loaders first use `LR[:,50::2]` and `HR[:,200::2]`, then apply their segment starts to those arrays with effective HR spacing `10`. This differs from the manuscript description of indices in the raw stored arrays; that preprocessing is preserved and exact manuscript time-window reproduction is unverified.
 
-The notebooks provide representative training splits. They do not yet automate the manuscript's complete ten-fold/five-partition aggregates. Some unseen-IC splits use unseeded Python `random`; pretrained weights and a complete test-reporting pipeline were not supplied. Burgers Task 1 also includes an explicit compatibility notice for the difference between the legacy dataset names and the supplied smooth-IC generator.
+The training notebooks provide representative splits and do not automate the manuscript's complete ten-fold/five-partition aggregates. Some unseen-IC training splits use unseeded Python `random`. The published evaluation uses one supplied checkpoint per PDE/task and saved normalization buffers. Checkpoints do not contain the full original train/validation/test identities; Task 1 uses the supplied filename convention, while Task 2 uses the partition configuration confirmed by the authors. Both Burgers tasks now select the shared `sig040_indIC` dataset directly.
 
 See [reproduction details and preparation changes](docs/REPRODUCIBILITY.md) for the exact scope and validation performed.
 

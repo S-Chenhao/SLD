@@ -1,0 +1,919 @@
+{
+  "scope": "Single-checkpoint SLD evaluation release",
+  "full_dataset_accuracy_recomputed": false,
+  "full_training_rerun": false,
+  "checkpoint_count": 6,
+  "original_checkpoint_bytes_preserved": true,
+  "source_model_equivalence": {
+    "status": "passed",
+    "source_notebook": "Visualization and evaluation-CaseB-Copy1.ipynb",
+    "source_notebook_sha256": "cd376b5f38885220e99d7f7416535045e9064d008f7c41d6771e4a6c8cdde7ce",
+    "source_cell_1_based": 1,
+    "module": "sld/model.py",
+    "environment": {
+      "python": "3.12.14",
+      "torch": "2.14.1",
+      "device": "cpu",
+      "threads": 2
+    },
+    "checkpoint": {
+      "filename": "GL_CaseB_1_best_model.pth",
+      "sha256": "897086c645309ba3ae34ee91a2bc44ffd9f52280dc210a12d1d31eb94f21ef58",
+      "weights_only": true,
+      "strict_load": true
+    },
+    "state_key_count": 62,
+    "source_and_module_state_keys_equal_including_order": true,
+    "checkpoint_and_module_state_keys_equal_including_order": true,
+    "all_loaded_state_tensors_equal": true,
+    "input_shape": [
+      2,
+      1,
+      2,
+      8,
+      8
+    ],
+    "output_shape": [
+      8,
+      1,
+      2,
+      64,
+      64
+    ],
+    "output_finite": true,
+    "prediction_exactly_equal": true,
+    "prediction_max_absolute_difference": 0.0,
+    "legacy_weight_norm": true,
+    "ode_wrapper_handling": "Original forward does not invoke ODE helper. A minimal nn.Module cell alias preserves all20 ode_wrapper.cell checkpoint keys without retaining unused ODE methods.",
+    "excluded": [
+      "baseline models",
+      "training/loss/data-loading code",
+      "unused PairwiseLearnedInterpolator",
+      "unused initialize_weights",
+      "unused ODE_ConvGRU_Func methods",
+      "NumPy/Matplotlib/SciPy imports",
+      "paths/device masks/import execution effects"
+    ],
+    "build_model_defaults": {
+      "n_feats": 64,
+      "n_layers": [
+        6,
+        3
+      ],
+      "upscale_factor": [
+        4,
+        8
+      ],
+      "normalization": "zero means and unit std for two channels, restored by checkpoint buffers",
+      "device": "optional caller choice"
+    }
+  },
+  "all_six_checkpoint_checks": {
+    "status": "passed",
+    "device": "cpu",
+    "torch_num_threads": 2,
+    "training_run": false,
+    "real_dataset_evaluation_run": false,
+    "source_notebook_top_level_execution": false,
+    "checks": [
+      {
+        "filename": "GS_CaseB_1_best_model.pth",
+        "strict_module_load": "passed",
+        "copied_sha256_matches_source": true,
+        "saved_normalization_restored": true,
+        "legacy_shared_recurrent_namespace_preserved": true,
+        "fixed_derivative_kernels_frozen": true,
+        "source_evaluation": {
+          "path": "Visualization and evaluation-CaseB-Copy1.ipynb",
+          "input_shape": [
+            2,
+            1,
+            2,
+            8,
+            8
+          ],
+          "output_shape": [
+            8,
+            1,
+            2,
+            64,
+            64
+          ],
+          "exact_tensor_equality": true,
+          "max_absolute_difference": 0.0
+        },
+        "target_100_frames": {
+          "input_shape": [
+            25,
+            1,
+            2,
+            8,
+            8
+          ],
+          "output_shape": [
+            100,
+            1,
+            2,
+            64,
+            64
+          ],
+          "finite": true,
+          "seconds": 0.5069
+        },
+        "total_file_seconds": 0.6413,
+        "recorded_training_metadata": {
+          "epoch": 978,
+          "best_error": 0.017155306413769722
+        }
+      },
+      {
+        "filename": "GS_CaseC_1_best_model.pth",
+        "strict_module_load": "passed",
+        "copied_sha256_matches_source": true,
+        "saved_normalization_restored": true,
+        "legacy_shared_recurrent_namespace_preserved": true,
+        "fixed_derivative_kernels_frozen": true,
+        "source_evaluation": {
+          "path": "Visualization and evaluation-CaseC-Copy1.ipynb",
+          "input_shape": [
+            2,
+            1,
+            2,
+            8,
+            8
+          ],
+          "output_shape": [
+            8,
+            1,
+            2,
+            64,
+            64
+          ],
+          "exact_tensor_equality": true,
+          "max_absolute_difference": 0.0
+        },
+        "target_100_frames": {
+          "input_shape": [
+            25,
+            1,
+            2,
+            8,
+            8
+          ],
+          "output_shape": [
+            100,
+            1,
+            2,
+            64,
+            64
+          ],
+          "finite": true,
+          "seconds": 0.5064
+        },
+        "total_file_seconds": 0.6032,
+        "recorded_training_metadata": {
+          "epoch": 984,
+          "best_error": 0.00979509148746729
+        }
+      },
+      {
+        "filename": "GL_CaseB_1_best_model.pth",
+        "strict_module_load": "passed",
+        "copied_sha256_matches_source": true,
+        "saved_normalization_restored": true,
+        "legacy_shared_recurrent_namespace_preserved": true,
+        "fixed_derivative_kernels_frozen": true,
+        "source_evaluation": {
+          "path": "Visualization and evaluation-CaseB-Copy1.ipynb",
+          "input_shape": [
+            2,
+            1,
+            2,
+            8,
+            8
+          ],
+          "output_shape": [
+            8,
+            1,
+            2,
+            64,
+            64
+          ],
+          "exact_tensor_equality": true,
+          "max_absolute_difference": 0.0
+        },
+        "target_100_frames": {
+          "input_shape": [
+            25,
+            1,
+            2,
+            8,
+            8
+          ],
+          "output_shape": [
+            100,
+            1,
+            2,
+            64,
+            64
+          ],
+          "finite": true,
+          "seconds": 0.503
+        },
+        "total_file_seconds": 0.6048,
+        "recorded_training_metadata": {
+          "epoch": 971,
+          "best_error": 0.01761103142052889
+        }
+      },
+      {
+        "filename": "GL_CaseC_1_best_model.pth",
+        "strict_module_load": "passed",
+        "copied_sha256_matches_source": true,
+        "saved_normalization_restored": true,
+        "legacy_shared_recurrent_namespace_preserved": true,
+        "fixed_derivative_kernels_frozen": true,
+        "source_evaluation": {
+          "path": "Visualization and evaluation-CaseC-Copy1.ipynb",
+          "input_shape": [
+            2,
+            1,
+            2,
+            8,
+            8
+          ],
+          "output_shape": [
+            8,
+            1,
+            2,
+            64,
+            64
+          ],
+          "exact_tensor_equality": true,
+          "max_absolute_difference": 0.0
+        },
+        "target_100_frames": {
+          "input_shape": [
+            25,
+            1,
+            2,
+            8,
+            8
+          ],
+          "output_shape": [
+            100,
+            1,
+            2,
+            64,
+            64
+          ],
+          "finite": true,
+          "seconds": 0.5173
+        },
+        "total_file_seconds": 0.6146,
+        "recorded_training_metadata": {
+          "epoch": 965,
+          "best_error": 0.012084005090097586
+        }
+      },
+      {
+        "filename": "Burgers_CaseB_1_best_model.pth",
+        "strict_module_load": "passed",
+        "copied_sha256_matches_source": true,
+        "saved_normalization_restored": true,
+        "legacy_shared_recurrent_namespace_preserved": true,
+        "fixed_derivative_kernels_frozen": true,
+        "source_evaluation": {
+          "path": "Visualization and evaluation-CaseB-Copy1.ipynb",
+          "input_shape": [
+            2,
+            1,
+            2,
+            8,
+            8
+          ],
+          "output_shape": [
+            8,
+            1,
+            2,
+            64,
+            64
+          ],
+          "exact_tensor_equality": true,
+          "max_absolute_difference": 0.0
+        },
+        "target_100_frames": {
+          "input_shape": [
+            25,
+            1,
+            2,
+            8,
+            8
+          ],
+          "output_shape": [
+            100,
+            1,
+            2,
+            64,
+            64
+          ],
+          "finite": true,
+          "seconds": 0.504
+        },
+        "total_file_seconds": 0.5986,
+        "recorded_training_metadata": {
+          "epoch": 386,
+          "best_error": 0.001691990764811635
+        }
+      },
+      {
+        "filename": "Burgers_CaseC_1_best_model.pth",
+        "strict_module_load": "passed",
+        "copied_sha256_matches_source": true,
+        "saved_normalization_restored": true,
+        "legacy_shared_recurrent_namespace_preserved": true,
+        "fixed_derivative_kernels_frozen": true,
+        "source_evaluation": {
+          "path": "Visualization and evaluation-CaseC-Copy1.ipynb",
+          "input_shape": [
+            2,
+            1,
+            2,
+            8,
+            8
+          ],
+          "output_shape": [
+            8,
+            1,
+            2,
+            64,
+            64
+          ],
+          "exact_tensor_equality": true,
+          "max_absolute_difference": 0.0
+        },
+        "target_100_frames": {
+          "input_shape": [
+            25,
+            1,
+            2,
+            8,
+            8
+          ],
+          "output_shape": [
+            100,
+            1,
+            2,
+            64,
+            64
+          ],
+          "finite": true,
+          "seconds": 0.5082
+        },
+        "total_file_seconds": 0.6037,
+        "recorded_training_metadata": {
+          "epoch": 935,
+          "best_error": 0.0011522596857200067
+        }
+      }
+    ],
+    "invariants_reviewed": [
+      "checkpoint loading uses weights_only=True on CPU and requires strict compatible tensor state with finite parameters and positive saved normalization std",
+      "normalization loaded from checkpoint, not recalculated on held-out data",
+      "shared ode_wrapper.cell namespace aliases gru_cell and derivative kernels remain frozen",
+      "source-defined temporal interpolation, midpoint latent update and Haar reconstruction match bitwise on small inputs",
+      "evaluation pools float64 sufficient statistics over every target pixel and frame instead of averaging batch metrics",
+      "raw Gray-Scott mapping retains offset LR50/HR200 and stride2 before segments; other PDEs retain stored frame order",
+      "selected windows are copied as independent contiguous float32 arrays and raw MAT tensors are not retained",
+      "Task1 default testIC1 and Task2 PDE-specific split partitions are recorded with provenance limitations"
+    ],
+    "substantive_bugs_found": [],
+    "elapsed_seconds": 3.9022
+  },
+  "full_spatial_temporal_shape": {
+    "input_shape": [
+      25,
+      1,
+      2,
+      32,
+      32
+    ],
+    "input": "synthetic, not raw PDE data",
+    "device": "cpu",
+    "rows": [
+      {
+        "path": "task1_unseen_ic/Gray-Scott/checkpoints/GS_CaseB_1_best_model.pth",
+        "shape": [
+          100,
+          1,
+          2,
+          256,
+          256
+        ],
+        "finite": true,
+        "seconds": 1.388
+      },
+      {
+        "path": "task1_unseen_ic/Ginzburg-Landau/checkpoints/GL_CaseB_1_best_model.pth",
+        "shape": [
+          100,
+          1,
+          2,
+          256,
+          256
+        ],
+        "finite": true,
+        "seconds": 1.321
+      },
+      {
+        "path": "task1_unseen_ic/Burgers/checkpoints/Burgers_CaseB_1_best_model.pth",
+        "shape": [
+          100,
+          1,
+          2,
+          256,
+          256
+        ],
+        "finite": true,
+        "seconds": 1.326
+      },
+      {
+        "path": "task2_later_time/Gray-Scott/checkpoints/GS_CaseC_1_best_model.pth",
+        "shape": [
+          100,
+          1,
+          2,
+          256,
+          256
+        ],
+        "finite": true,
+        "seconds": 1.319
+      },
+      {
+        "path": "task2_later_time/Ginzburg-Landau/checkpoints/GL_CaseC_1_best_model.pth",
+        "shape": [
+          100,
+          1,
+          2,
+          256,
+          256
+        ],
+        "finite": true,
+        "seconds": 1.339
+      },
+      {
+        "path": "task2_later_time/Burgers/checkpoints/Burgers_CaseC_1_best_model.pth",
+        "shape": [
+          100,
+          1,
+          2,
+          256,
+          256
+        ],
+        "finite": true,
+        "seconds": 1.325
+      }
+    ],
+    "passed": true
+  },
+  "pipeline_oracle_tests": {
+    "status": "passed",
+    "environment": {
+      "python": "3.12.14",
+      "torch": "2.14.1",
+      "numpy": "2.5.3",
+      "device": "cpu"
+    },
+    "scope": "Only _load_checkpoint was mocked. The real MATLAB loader, preprocessing, window selection, evaluator, metric pooling, checkpoint hashing and JSON writer were exercised with temporary synthetic arrays. Actual time counts and offsets/strides were retained; spatial sizes were reduced in an in-process deep copy of PDE_CONFIG. No output package files were modified; no actual SLD inference, training, downloading or generation was run.",
+    "fixture_directory": "evaluation-pipeline-8k8lf8qo",
+    "prediction_oracle": "constant 0.75; truth/input encode raw frame, IC, channel and spatial coordinate",
+    "valid_pipeline_runs": [
+      {
+        "pde": "gray_scott",
+        "task": "task1_unseen_ic",
+        "test_ics": [
+          1
+        ],
+        "lr_starts": [
+          100,
+          150,
+          200,
+          250
+        ],
+        "raw_frame_mapping": [
+          {
+            "postprocess_lr_start": 100,
+            "postprocess_hr_start": 400,
+            "raw_lr_start": 250,
+            "raw_hr_start": 1000,
+            "raw_lr_last": 298,
+            "raw_hr_last": 1198,
+            "raw_sampling_stride": 2
+          },
+          {
+            "postprocess_lr_start": 150,
+            "postprocess_hr_start": 600,
+            "raw_lr_start": 350,
+            "raw_hr_start": 1400,
+            "raw_lr_last": 398,
+            "raw_hr_last": 1598,
+            "raw_sampling_stride": 2
+          },
+          {
+            "postprocess_lr_start": 200,
+            "postprocess_hr_start": 800,
+            "raw_lr_start": 450,
+            "raw_hr_start": 1800,
+            "raw_lr_last": 498,
+            "raw_hr_last": 1998,
+            "raw_sampling_stride": 2
+          },
+          {
+            "postprocess_lr_start": 250,
+            "postprocess_hr_start": 1000,
+            "raw_lr_start": 550,
+            "raw_hr_start": 2200,
+            "raw_lr_last": 598,
+            "raw_hr_last": 2398,
+            "raw_sampling_stride": 2
+          }
+        ],
+        "pooled_metrics": {
+          "relative_l2": 0.6426085975249809,
+          "mae": 1.2020000816788525
+        },
+        "element_count": 51200,
+        "numpy_oracle_agrees": true,
+        "all_lr_windows_exact": true,
+        "per_window_and_per_ic_metrics_agree": true,
+        "saved_json_roundtrip_exact": true
+      },
+      {
+        "pde": "ginzburg_landau",
+        "task": "task1_unseen_ic",
+        "test_ics": [
+          1
+        ],
+        "lr_starts": [
+          100,
+          150,
+          200,
+          250
+        ],
+        "raw_frame_mapping": [
+          {
+            "postprocess_lr_start": 100,
+            "postprocess_hr_start": 400,
+            "raw_lr_start": 100,
+            "raw_hr_start": 400,
+            "raw_lr_last": 124,
+            "raw_hr_last": 499,
+            "raw_sampling_stride": 1
+          },
+          {
+            "postprocess_lr_start": 150,
+            "postprocess_hr_start": 600,
+            "raw_lr_start": 150,
+            "raw_hr_start": 600,
+            "raw_lr_last": 174,
+            "raw_hr_last": 699,
+            "raw_sampling_stride": 1
+          },
+          {
+            "postprocess_lr_start": 200,
+            "postprocess_hr_start": 800,
+            "raw_lr_start": 200,
+            "raw_hr_start": 800,
+            "raw_lr_last": 224,
+            "raw_hr_last": 899,
+            "raw_sampling_stride": 1
+          },
+          {
+            "postprocess_lr_start": 250,
+            "postprocess_hr_start": 1000,
+            "raw_lr_start": 250,
+            "raw_hr_start": 1000,
+            "raw_lr_last": 274,
+            "raw_hr_last": 1099,
+            "raw_sampling_stride": 1
+          }
+        ],
+        "pooled_metrics": {
+          "relative_l2": 0.348820579330142,
+          "mae": 0.2964799587382004
+        },
+        "element_count": 51200,
+        "numpy_oracle_agrees": true,
+        "all_lr_windows_exact": true,
+        "per_window_and_per_ic_metrics_agree": true,
+        "saved_json_roundtrip_exact": true
+      },
+      {
+        "pde": "burgers",
+        "task": "task1_unseen_ic",
+        "test_ics": [
+          1
+        ],
+        "lr_starts": [
+          100,
+          150,
+          200,
+          250
+        ],
+        "raw_frame_mapping": [
+          {
+            "postprocess_lr_start": 100,
+            "postprocess_hr_start": 400,
+            "raw_lr_start": 100,
+            "raw_hr_start": 400,
+            "raw_lr_last": 124,
+            "raw_hr_last": 499,
+            "raw_sampling_stride": 1
+          },
+          {
+            "postprocess_lr_start": 150,
+            "postprocess_hr_start": 600,
+            "raw_lr_start": 150,
+            "raw_hr_start": 600,
+            "raw_lr_last": 174,
+            "raw_hr_last": 699,
+            "raw_sampling_stride": 1
+          },
+          {
+            "postprocess_lr_start": 200,
+            "postprocess_hr_start": 800,
+            "raw_lr_start": 200,
+            "raw_hr_start": 800,
+            "raw_lr_last": 224,
+            "raw_hr_last": 899,
+            "raw_sampling_stride": 1
+          },
+          {
+            "postprocess_lr_start": 250,
+            "postprocess_hr_start": 1000,
+            "raw_lr_start": 250,
+            "raw_hr_start": 1000,
+            "raw_lr_last": 274,
+            "raw_hr_last": 1099,
+            "raw_sampling_stride": 1
+          }
+        ],
+        "pooled_metrics": {
+          "relative_l2": 0.348820579330142,
+          "mae": 0.2964799587382004
+        },
+        "element_count": 51200,
+        "numpy_oracle_agrees": true,
+        "all_lr_windows_exact": true,
+        "per_window_and_per_ic_metrics_agree": true,
+        "saved_json_roundtrip_exact": true
+      },
+      {
+        "pde": "gray_scott",
+        "task": "task2_later_time",
+        "test_ics": [
+          1,
+          3,
+          7,
+          8,
+          9
+        ],
+        "lr_starts": [
+          225,
+          250
+        ],
+        "raw_frame_mapping": [
+          {
+            "postprocess_lr_start": 225,
+            "postprocess_hr_start": 900,
+            "raw_lr_start": 500,
+            "raw_hr_start": 2000,
+            "raw_lr_last": 548,
+            "raw_hr_last": 2198,
+            "raw_sampling_stride": 2
+          },
+          {
+            "postprocess_lr_start": 250,
+            "postprocess_hr_start": 1000,
+            "raw_lr_start": 550,
+            "raw_hr_start": 2200,
+            "raw_lr_last": 598,
+            "raw_hr_last": 2398,
+            "raw_sampling_stride": 2
+          }
+        ],
+        "pooled_metrics": {
+          "relative_l2": 0.7467722180113785,
+          "mae": 2.162000126838684
+        },
+        "element_count": 128000,
+        "numpy_oracle_agrees": true,
+        "all_lr_windows_exact": true,
+        "per_window_and_per_ic_metrics_agree": true,
+        "saved_json_roundtrip_exact": true
+      },
+      {
+        "pde": "ginzburg_landau",
+        "task": "task2_later_time",
+        "test_ics": [
+          1,
+          2,
+          4,
+          7,
+          8
+        ],
+        "lr_starts": [
+          225,
+          250
+        ],
+        "raw_frame_mapping": [
+          {
+            "postprocess_lr_start": 225,
+            "postprocess_hr_start": 900,
+            "raw_lr_start": 225,
+            "raw_hr_start": 900,
+            "raw_lr_last": 249,
+            "raw_hr_last": 999,
+            "raw_sampling_stride": 1
+          },
+          {
+            "postprocess_lr_start": 250,
+            "postprocess_hr_start": 1000,
+            "raw_lr_start": 250,
+            "raw_hr_start": 1000,
+            "raw_lr_last": 274,
+            "raw_hr_last": 1099,
+            "raw_sampling_stride": 1
+          }
+        ],
+        "pooled_metrics": {
+          "relative_l2": 0.5527213610509082,
+          "mae": 0.8425000454857945
+        },
+        "element_count": 128000,
+        "numpy_oracle_agrees": true,
+        "all_lr_windows_exact": true,
+        "per_window_and_per_ic_metrics_agree": true,
+        "saved_json_roundtrip_exact": true
+      },
+      {
+        "pde": "burgers",
+        "task": "task2_later_time",
+        "test_ics": [
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "lr_starts": [
+          225,
+          250
+        ],
+        "raw_frame_mapping": [
+          {
+            "postprocess_lr_start": 225,
+            "postprocess_hr_start": 900,
+            "raw_lr_start": 225,
+            "raw_hr_start": 900,
+            "raw_lr_last": 249,
+            "raw_hr_last": 999,
+            "raw_sampling_stride": 1
+          },
+          {
+            "postprocess_lr_start": 250,
+            "postprocess_hr_start": 1000,
+            "raw_lr_start": 250,
+            "raw_hr_start": 1000,
+            "raw_lr_last": 274,
+            "raw_hr_last": 1099,
+            "raw_sampling_stride": 1
+          }
+        ],
+        "pooled_metrics": {
+          "relative_l2": 0.6209765876270268,
+          "mae": 1.2025000587105752
+        },
+        "element_count": 128000,
+        "numpy_oracle_agrees": true,
+        "all_lr_windows_exact": true,
+        "per_window_and_per_ic_metrics_agree": true,
+        "saved_json_roundtrip_exact": true
+      }
+    ],
+    "error_checks": [
+      {
+        "check": "IC zero rejected",
+        "exception": "ValueError",
+        "message": "test_ics contains duplicates or out-of-range indices."
+      },
+      {
+        "check": "IC eleven rejected",
+        "exception": "ValueError",
+        "message": "test_ics contains duplicates or out-of-range indices."
+      },
+      {
+        "check": "duplicate IC rejected",
+        "exception": "ValueError",
+        "message": "test_ics contains duplicates or out-of-range indices."
+      },
+      {
+        "check": "bool IC rejected",
+        "exception": "ValueError",
+        "message": "test_ics must be a nonempty list of integer indices."
+      },
+      {
+        "check": "negative segment rejected",
+        "exception": "ValueError",
+        "message": "segments contains duplicates or out-of-range indices."
+      },
+      {
+        "check": "out-of-frame window rejected",
+        "exception": "ValueError",
+        "message": "Window LR start 300 exceeds available frames for IC 1."
+      },
+      {
+        "check": "missing checkpoint rejected by real loader",
+        "exception": "FileNotFoundError",
+        "message": "absent.pth"
+      },
+      {
+        "check": "missing MATLAB pair member rejected",
+        "exception": "FileNotFoundError",
+        "message": "2DGL_IC1_ri100_2x300x32x32.mat"
+      },
+      {
+        "check": "missing uv key rejected",
+        "exception": "ValueError",
+        "message": "2DGL_IC1_ri100_2x300x32x32.mat"
+      },
+      {
+        "check": "MAT shape mismatch rejected",
+        "exception": "ValueError",
+        "message": "2DGL_IC1_ri100_2x300x32x32.mat"
+      },
+      {
+        "check": "selected LR NaN rejected",
+        "exception": "ValueError",
+        "message": "Selected dataset window contains NaN/Inf: IC 1, LR start 100."
+      },
+      {
+        "check": "selected HR Inf rejected",
+        "exception": "ValueError",
+        "message": "Selected dataset window contains NaN/Inf: IC 1, LR start 100."
+      },
+      {
+        "check": "prediction shape mismatch rejected",
+        "exception": "ValueError",
+        "message": "Unexpected SLD output shape: torch.Size([99, 1, 2, 8, 8]), expected torch.Size([100, 1, 2, 8, 8])"
+      },
+      {
+        "check": "prediction NaN rejected",
+        "exception": "ValueError",
+        "message": "Prediction or target contains NaN/Inf."
+      }
+    ],
+    "evaluation_notebooks": [
+      {
+        "notebook": "task1_unseen_ic/SLD_evaluation.ipynb",
+        "all_cells_AST_and_nbformat_pass": true,
+        "nested_setup_root_and_paths_correct": true,
+        "download_default_off": true,
+        "outputs_cleared": true
+      },
+      {
+        "notebook": "task2_later_time/SLD_evaluation.ipynb",
+        "all_cells_AST_and_nbformat_pass": true,
+        "nested_setup_root_and_paths_correct": true,
+        "download_default_off": true,
+        "outputs_cleared": true
+      }
+    ],
+    "limitations": [
+      "Real checkpoints and production dataset scores were not evaluated in this synthetic pipeline check."
+    ]
+  },
+  "static_checks": {
+    "passed": true,
+    "notebooks": [
+      "task1_unseen_ic/SLD_evaluation.ipynb",
+      "task2_later_time/SLD_evaluation.ipynb",
+      "task1_unseen_ic/Gray-Scott/Gray-Scott_SLD.ipynb",
+      "task1_unseen_ic/Burgers/Burgers_SLD.ipynb",
+      "task1_unseen_ic/Ginzburg-Landau/Ginzburg-Landau_SLD.ipynb",
+      "data_generation/Gray-Scott/Gray-Scott_data.ipynb",
+      "data_generation/Burgers/Burgers_data.ipynb",
+      "data_generation/Ginzburg-Landau/Ginzburg-Landau_data.ipynb",
+      "task2_later_time/Gray-Scott/Gray-Scott_SLD.ipynb",
+      "task2_later_time/Burgers/Burgers_SLD.ipynb",
+      "task2_later_time/Ginzburg-Landau/Ginzburg-Landau_SLD.ipynb"
+    ],
+    "python_modules": 3
+  },
+  "dataset_file_contract": {
+    "repository": "ChenhaoSI/SLD-dataset",
+    "revision": "99e5242aaf83fe64071b6bf6d8e6505e75165d92",
+    "expected_mat_files": 60,
+    "verified_mat_files": 60
+  }
+}

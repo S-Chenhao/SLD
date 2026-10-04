@@ -4,7 +4,7 @@
 
 This repository organizes the author's six SLD experiment notebooks and three dataset generators. The notebooks retain their model and numerical-solver code, loss definitions, training hyperparameters, and supplied seeds. Preparation repairs execution and path issues and explicitly corrects the Gray–Scott Task 2 temporal split.
 
-Generated datasets, trained weights, baseline implementations, and a complete manuscript-results aggregation pipeline are not part of this release. The accompanying manuscript was used to identify the tasks and data contracts; the manuscript PDF is not bundled.
+Raw datasets are hosted on Hugging Face, and six representative trained SLD checkpoints are included. Two compact SLD-only evaluation notebooks provide one-checkpoint test metrics. Baseline implementations and complete manuscript-results aggregation are not part of this release. The accompanying manuscript was used to identify the tasks and data contracts; the manuscript PDF is not bundled.
 
 ## Protocol and supplied splits
 
@@ -39,31 +39,16 @@ The supplied GS generator stores its initial state, then saves after an update w
 
 The original Task 2 `GSDataset` accepted a `segments` argument but ignored it. It used the fixed starts `100,150,200,250` for every split, overlapping the intended early/later protocols. The prepared notebook uses the supplied `segments` argument. Synthetic time-coded data checks verify the requested starts and nonoverlapping HR frame sets.
 
-## Burgers filename compatibility
+## Shared Burgers dataset
 
-The supplied generator implements the smooth initial conditions described in manuscript Supplementary Note 5.2.3. It generates files named:
+The authors' later supplied CaseB notebook and both evaluation notebooks use the same independent smooth-IC dataset as CaseC and the generator:
 
 ```text
 2DBurgers_IC{ic}_ri100_sig040_indIC_2x300x32x32.mat
 2DBurgers_IC{ic}_ri100_sig040_indIC_2x1200x256x256.mat
 ```
 
-The supplied unseen-IC notebook originally expected legacy filenames without `sig040_indIC`:
-
-```text
-2DBurgers_IC{ic}_ri100_2x300x32x32.mat
-2DBurgers_IC{ic}_ri100_2x1200x256x256.mat
-```
-
-Task 1 supports `SLD_BURGERS_TASK1_SOURCE`:
-
-| Value | Selection |
-| --- | --- |
-| `auto` (default) | Prefer a complete legacy LR/HR pair; otherwise use the generated smooth-IC pair with a provenance warning. |
-| `legacy` | Require the original legacy filenames; fail if absent. |
-| `smooth` | Explicitly use the supplied generator's filenames. |
-
-The resolver always selects a coherent LR/HR pair for each identity. Source identity and equivalence of any original legacy dataset remain unverified; smooth-file fallback must not be treated as proof of reproducing the original Task 1 results. Task 2 uses the smooth names directly.
+Both training tasks and released evaluation now use these names directly. The initial unseen-IC source expected legacy `ri100` filenames; its compatibility fallback was removed after the authors confirmed the shared dataset. The other training model, loss and hyperparameter code is retained from the initial source.
 
 ## Files, paths, and device selection
 
@@ -89,7 +74,7 @@ Use the generator's default scientific settings when reproducing the supplied da
 
 ## Evaluation and validation limits
 
-The supplied training loops create test loaders but do not automatically run final held-out evaluation after training. GS includes a disabled optional cell that loads the selected checkpoint and invokes the existing `test_gs` helper. Its original batch-average metric is not the manuscript's repeated-partition aggregate. GL/Burgers do not include a complete final test-reporting pipeline.
+The training loops create test loaders but do not automatically run final held-out evaluation after training. GS includes a disabled optional cell that loads a selected training checkpoint and invokes the existing `test_gs` helper; its original batch-average metric is not the manuscript's repeated-partition aggregate. The separate released `SLD_evaluation.ipynb` notebooks now provide the single-checkpoint test-reporting pipeline for all three PDEs.
 
 Release validation covers notebook schema and syntax, portable setup paths, six small CPU model forward passes, physical-loss checks, synthetic segment tests, and tiny generator/operator smoke checks. The checks use shortened sequences and small grids to exercise executable paths. They do not measure reconstruction accuracy, establish convergence, or validate the published numerical results. No full dataset generation, 1000-epoch training, GPU experiment, or paper-metric reproduction was performed.
 
@@ -98,3 +83,7 @@ The exact check results and validation environment are saved in [VALIDATION.json
 ## License
 
 A software license has not yet been selected by the authors. Public repository visibility alone does not grant an open-source license. A `LICENSE` file can be added after that choice is confirmed.
+
+## Published checkpoint evaluation
+
+See [EVALUATION.md](EVALUATION.md) for the two SLD-only evaluation notebooks, six checkpoint paths, saved normalization, authors' confirmed splits, pooled metrics and pinned Hugging Face dataset revision. Their checks are recorded separately in [EVALUATION_VALIDATION.json](EVALUATION_VALIDATION.json). The original preparation validation above documents the first release before checkpoints were supplied.

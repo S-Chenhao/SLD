@@ -199,5 +199,22 @@
     ],
     "float64_storage_preserved": true,
     "downsampling_change": "Missing pyrtools now fails clearly rather than silently using simple decimation"
+  },
+  {
+    "release_update": "Single-checkpoint SLD evaluation",
+    "source": [
+      "Visualization and evaluation-CaseB-Copy1.ipynb",
+      "Visualization and evaluation-CaseC-Copy1.ipynb"
+    ],
+    "evaluation_notebooks": [
+      "task1_unseen_ic/SLD_evaluation.ipynb",
+      "task2_later_time/SLD_evaluation.ipynb"
+    ],
+    "changes": [
+      "SLD-only inference and saved normalization",
+      "One checkpoint per PDE/task; no baselines, panel plots or cross-checkpoint statistics",
+      "CaseB held-outIC1; CaseC author-confirmed PDE-specific training partitions",
+      "Burgers Task1 reads shared sig040_indIC files directly"
+    ]
   }
 ]

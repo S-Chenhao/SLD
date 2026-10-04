@@ -1,0 +1,44 @@
+[
+  {
+    "pde": "gray_scott",
+    "task": "task1_unseen_ic",
+    "path": "task1_unseen_ic/Gray-Scott/checkpoints/GS_CaseB_1_best_model.pth",
+    "bytes": 2119502,
+    "sha256": "92ab3333b698b458987fd2205104f5bd75a04cb2d2474aa69ea869b0550c1e10"
+  },
+  {
+    "pde": "ginzburg_landau",
+    "task": "task1_unseen_ic",
+    "path": "task1_unseen_ic/Ginzburg-Landau/checkpoints/GL_CaseB_1_best_model.pth",
+    "bytes": 2119502,
+    "sha256": "897086c645309ba3ae34ee91a2bc44ffd9f52280dc210a12d1d31eb94f21ef58"
+  },
+  {
+    "pde": "burgers",
+    "task": "task1_unseen_ic",
+    "path": "task1_unseen_ic/Burgers/checkpoints/Burgers_CaseB_1_best_model.pth",
+    "bytes": 2120321,
+    "sha256": "dd884da7d75e3bd78c8e7550a18a30307b9480b286a7a60cba8c96f1220042d2"
+  },
+  {
+    "pde": "gray_scott",
+    "task": "task2_later_time",
+    "path": "task2_later_time/Gray-Scott/checkpoints/GS_CaseC_1_best_model.pth",
+    "bytes": 2119502,
+    "sha256": "6dd7d0d9ac93710e11b66fa7874956b13a8269911a69e61a7c26de15c6fd55ef"
+  },
+  {
+    "pde": "ginzburg_landau",
+    "task": "task2_later_time",
+    "path": "task2_later_time/Ginzburg-Landau/checkpoints/GL_CaseC_1_best_model.pth",
+    "bytes": 2119502,
+    "sha256": "28eb30ebaf80591e20f2f63e9aad39154dc8d4c8b9641b3b5fbda3497b8e07e5"
+  },
+  {
+    "pde": "burgers",
+    "task": "task2_later_time",
+    "path": "task2_later_time/Burgers/checkpoints/Burgers_CaseC_1_best_model.pth",
+    "bytes": 2120321,
+    "sha256": "4b4a8caef90578c619ee14a304877c7f7d7c1c95aa1a55dd38df80c9602d7d79"
+  }
+]

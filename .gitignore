@@ -16,3 +16,11 @@ venv/
 .env
 .env.*
 .DS_Store
+
+# Published representative SLD checkpoints
+!/task1_unseen_ic/Gray-Scott/checkpoints/GS_CaseB_1_best_model.pth
+!/task1_unseen_ic/Ginzburg-Landau/checkpoints/GL_CaseB_1_best_model.pth
+!/task1_unseen_ic/Burgers/checkpoints/Burgers_CaseB_1_best_model.pth
+!/task2_later_time/Gray-Scott/checkpoints/GS_CaseC_1_best_model.pth
+!/task2_later_time/Ginzburg-Landau/checkpoints/GL_CaseC_1_best_model.pth
+!/task2_later_time/Burgers/checkpoints/Burgers_CaseC_1_best_model.pth
