@@ -2,7 +2,7 @@
 
 ### Latent dynamics for reconstructing fine-scale PDE trajectories from coarse observations
 
-**Chenhao Si · Zishan Qian · Rongling Wu · Ming Yan**
+**Chenhao Si · Zishan Qian · Shing-Tung Yau · Rongling Wu · Ming Yan**
 
 SLD reconstructs high-resolution PDE trajectories from coarse observations. It combines temporal interpolation and learned refinement, guided latent dynamics with fixed spatial difference operators, and Haar wavelet reconstruction heads.
 
